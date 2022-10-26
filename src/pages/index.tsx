@@ -8,9 +8,15 @@ const Home: NextPage = () => {
   const [songs, setSongs] = useState<SongType[]>([])
 
   useEffect(() => {
-    fetch('/api/getSongs')
-      .then((response) => response.json())
-      .then((data) => setSongs(data))
+    const fetchSongs = async () => {
+      const res = await fetch('/api/getSongs', {
+        method: 'POST'
+      })
+      const data = await res.json()
+      setSongs(data)
+    }
+
+    fetchSongs()
   }, [])
 
   console.log(songs)

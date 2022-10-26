@@ -2,7 +2,6 @@ import React from 'react'
 import { SongType } from '../utils/types'
 
 const Song = ({ song } : {song: SongType}) => {
-  console.log(song)
 
   return (
     <div className='bg-slate-500 w-1/2 h-60 p-3 rounded flex flex-col justify-between' key={song.id}>
