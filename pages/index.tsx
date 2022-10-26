@@ -1,8 +1,20 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { Song } from '../src/utils/types'
 
 const Home: NextPage = () => {
+  const [songs, setSongs] = useState<Song[]>([])
+
+  useEffect(() => {
+    fetch('/api/getSongs')
+      .then((response) => response.json())
+      .then((data) => setSongs(data))
+  }, [])
+
+  console.log(songs)
+
   return (
     <div>
       <Head>

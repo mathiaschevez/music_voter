@@ -23,4 +23,15 @@ model User {
   email String  @unique
   name  String?
   posts Post[]
+  votes Song[]
+}
+
+model Song {
+  id     Int     @id @default(autoincrement())
+  title  String
+  artist String
+  lyrics Json?
+  votes  User[]
+  wins   Int?    @default(autoincrement())
+  losses Int?    @default(autoincrement())
 }
